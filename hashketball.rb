@@ -1,4 +1,4 @@
-require "pry"
+# require "pry"
 
 def game_hash
   a_hash = {
@@ -12,7 +12,7 @@ def game_hash
                 "Brook Lopez" => {
                   number: 11, shoe: 17, points: 17, rebounds: 19, assists: 10, steals: 3, blocks: 1, slam_dunks: 15},
                 "Mason Plumlee" => {
-                  number: 1, shoe: 19, points: 26, rebounds: 12, assists: 6, steals: 3, blocks: 8, slam_dunks: 5},
+                  number: 1, shoe: 19, points: 26, rebounds: 13, assists: 6, steals: 3, blocks: 8, slam_dunks: 5},
                 "Jason Terry" => {
                   number: 31, shoe: 15, points: 19, rebounds: 2, assists: 2, steals: 4, blocks: 11, slam_dunks: 1}
             },
@@ -116,12 +116,26 @@ end
 
 def big_shoe_rebounds
   biggest_shoe_size = 0
+  rebounds_of_player = 0
   all_players.each do |player, values|
     # binding.pry
     if values[:shoe] > biggest_shoe_size
       biggest_shoe_size = values[:shoe]
-      return values[:rebounds]
+      rebounds_of_player = values[:rebounds]
     end
   end
+  return rebounds_of_player
 end
 # #command d takes duplicates and renames
+
+def most_points_scored
+  most_points = 0
+  player_with_most_points = ""
+  all_players.each do |player, values|
+    if values[:points] > most_points
+      most_points = values[:points]
+      player_with_most_points = player
+    end
+  end
+  return player_with_most_points
+end
